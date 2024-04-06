@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Feedbeck from './components/Feedback/Feedback';
+import Feedback from './components/Feedback/Feedback';
 import Options from './components/Options/Options';
 import DescriptionJSON from './components/Description/DescriptionJSON.json'
 import Description from './components/Description/Description';
@@ -52,7 +52,7 @@ const totalFeedbackCount = totalMaker()
       {totalFeedbackCount ? <button className='btn' type="button" onClick={resetMaker}>Reset</button> : ""}
       </div>
 
-      {totalFeedbackCount ? <Feedbeck value={values} obj={state} total={totalFeedbackCount}/> : <Notification text={'No feedback yet'}/>}
+      {totalFeedbackCount ? <Feedback value={values} obj={state} total={totalFeedbackCount}/> : <Notification text={'No feedback yet'}/>}
     
     </div>
   );

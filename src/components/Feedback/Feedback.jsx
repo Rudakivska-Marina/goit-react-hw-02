@@ -1,6 +1,6 @@
 import css from './Feedback.module.css'
 
-function Feedbeck({value, obj, total}){
+function Feedback({value, obj, total}){
 
     function positiveMaker(){
         let number = 0;
@@ -22,4 +22,4 @@ function Feedbeck({value, obj, total}){
 }
 
 
-export default Feedbeck
+export default Feedback
