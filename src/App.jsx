@@ -7,7 +7,7 @@ import '../src/App.css'
 import Notification from './components/Notification/Notification'
 
 const App = () => {
-  const state = {
+  const initialState = {
     good: 0,
     neutral: 0,
     bad: 0,
@@ -15,7 +15,7 @@ const App = () => {
     
   const [values, setValues] = useState(() => {
     const savedValues = JSON.parse(window.localStorage.getItem("saved-values"));
-  return savedValues || state
+  return savedValues || initialState
 })
 
 
@@ -30,7 +30,7 @@ const App = () => {
 
   function resetMaker(){
     setValues({
-			...state
+			...initialState
 		});
 }
 
@@ -48,11 +48,11 @@ const totalFeedbackCount = totalMaker()
     <div className='mainContainer'>
 <Description title={DescriptionJSON.title} text={DescriptionJSON.text}/>
 <div className='box'>
-      <Options obj={state} update={updateFeedback} reset={resetMaker} total={totalFeedbackCount}/>
+      <Options obj={values} update={updateFeedback} reset={resetMaker} total={totalFeedbackCount}/>
       {totalFeedbackCount ? <button className='btn' type="button" onClick={resetMaker}>Reset</button> : ""}
       </div>
 
-      {totalFeedbackCount ? <Feedback value={values} obj={state} total={totalFeedbackCount}/> : <Notification text={'No feedback yet'}/>}
+      {totalFeedbackCount ? <Feedback value={values} obj={initialState} total={totalFeedbackCount}/> : <Notification text={'No feedback yet'}/>}
     
     </div>
   );
